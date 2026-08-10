@@ -1,0 +1,45 @@
+2026-07-23 01:49:42.574 UTC [34] LOG:  starting PostgreSQL 18.4 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 16.1.1 20260430, 64-bit
+2026-07-23 01:49:42.575 UTC [34] LOG:  listening on IPv6 address "::1", port 5433
+2026-07-23 01:49:42.575 UTC [34] LOG:  listening on IPv4 address "127.0.0.1", port 5433
+2026-07-23 01:49:42.577 UTC [34] FATAL:  could not create lock file "/run/postgresql/.s.PGSQL.5433.lock": No such file or directory
+2026-07-23 01:49:42.579 UTC [34] LOG:  database system is shut down
+2026-07-23 01:50:07.264 UTC [24] LOG:  starting PostgreSQL 18.4 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 16.1.1 20260430, 64-bit
+2026-07-23 01:50:07.266 UTC [24] LOG:  listening on IPv6 address "::1", port 5433
+2026-07-23 01:50:07.266 UTC [24] LOG:  listening on IPv4 address "127.0.0.1", port 5433
+2026-07-23 01:50:07.269 UTC [24] LOG:  listening on Unix socket "/home/yumi/Documents/cs-student-hub/db_data/.s.PGSQL.5433"
+2026-07-23 01:50:07.274 UTC [30] LOG:  database system was shut down at 2026-07-23 01:49:41 UTC
+2026-07-23 01:50:07.278 UTC [24] LOG:  database system is ready to accept connections
+2026-07-23 01:55:20.408 UTC [21] LOG:  starting PostgreSQL 18.4 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 16.1.1 20260430, 64-bit
+2026-07-23 01:55:20.409 UTC [21] LOG:  listening on IPv6 address "::1", port 5433
+2026-07-23 01:55:20.409 UTC [21] LOG:  listening on IPv4 address "127.0.0.1", port 5433
+2026-07-23 01:55:20.415 UTC [21] LOG:  listening on Unix socket "/home/yumi/Documents/cs-student-hub/db_data/.s.PGSQL.5433"
+2026-07-23 01:55:20.424 UTC [28] LOG:  database system was interrupted; last known up at 2026-07-23 01:50:45 UTC
+2026-07-23 01:55:21.515 UTC [28] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-07-23 01:55:21.519 UTC [28] LOG:  redo starts at 0/1BA6D68
+2026-07-23 01:55:21.550 UTC [28] LOG:  invalid record length at 0/1CA6900: expected at least 24, got 0
+2026-07-23 01:55:21.550 UTC [28] LOG:  redo done at 0/1CA68C8 system usage: CPU: user: 0.00 s, system: 0.01 s, elapsed: 0.03 s
+2026-07-23 01:55:21.581 UTC [26] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-07-23 01:55:21.753 UTC [26] LOG:  checkpoint complete: wrote 186 buffers (1.1%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.028 s, sync=0.132 s, total=0.173 s; sync files=145, longest=0.007 s, average=0.001 s; distance=1023 kB, estimate=1023 kB; lsn=0/1CA6900, redo lsn=0/1CA6900
+2026-07-23 01:55:21.768 UTC [21] LOG:  database system is ready to accept connections
+2026-07-24 14:23:01.107 UTC [21] LOG:  starting PostgreSQL 18.4 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 16.1.1 20260430, 64-bit
+2026-07-24 14:23:01.108 UTC [21] LOG:  listening on IPv6 address "::1", port 5433
+2026-07-24 14:23:01.108 UTC [21] LOG:  listening on IPv4 address "127.0.0.1", port 5433
+2026-07-24 14:23:01.111 UTC [21] LOG:  listening on Unix socket "/home/yumi/Documents/cs-student-hub/db_data/.s.PGSQL.5433"
+2026-07-24 14:23:01.119 UTC [27] LOG:  database system was interrupted; last known up at 2026-07-23 01:55:21 UTC
+2026-07-24 14:23:02.185 UTC [27] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-07-24 14:23:02.188 UTC [27] LOG:  invalid record length at 0/1CA6978: expected at least 24, got 0
+2026-07-24 14:23:02.188 UTC [27] LOG:  redo is not required
+2026-07-24 14:23:02.194 UTC [25] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-07-24 14:23:02.208 UTC [25] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.002 s, total=0.016 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1CA6978, redo lsn=0/1CA6978
+2026-07-24 14:23:02.212 UTC [21] LOG:  database system is ready to accept connections
+2026-07-31 14:59:01.065 UTC [23] LOG:  starting PostgreSQL 18.4 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 16.1.1 20260430, 64-bit
+2026-07-31 14:59:01.066 UTC [23] LOG:  listening on IPv6 address "::1", port 5433
+2026-07-31 14:59:01.066 UTC [23] LOG:  listening on IPv4 address "127.0.0.1", port 5433
+2026-07-31 14:59:01.070 UTC [23] LOG:  listening on Unix socket "/home/yumi/Documents/cs-student-hub/db_data/.s.PGSQL.5433"
+2026-07-31 14:59:01.082 UTC [29] LOG:  database system was interrupted; last known up at 2026-07-24 14:23:02 UTC
+2026-07-31 14:59:02.107 UTC [29] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-07-31 14:59:02.112 UTC [29] LOG:  invalid record length at 0/1CA69F0: expected at least 24, got 0
+2026-07-31 14:59:02.112 UTC [29] LOG:  redo is not required
+2026-07-31 14:59:02.118 UTC [27] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-07-31 14:59:02.132 UTC [27] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.002 s, total=0.015 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/1CA69F0, redo lsn=0/1CA69F0
+2026-07-31 14:59:02.135 UTC [23] LOG:  database system is ready to accept connections

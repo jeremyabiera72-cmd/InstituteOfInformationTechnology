@@ -1,0 +1,1 @@
+/usr/bin/postgres "-D" "/home/yumi/Documents/cs-student-hub/db_data" "-p" "5433"
