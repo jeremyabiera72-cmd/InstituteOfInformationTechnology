@@ -1,13 +1,13 @@
 import serverless from 'serverless-http';
 import { setupApp } from '../../server.ts';
-import type { Handler } from '@netlify/functions';
 
-let handlerInstance: serverless.Handler;
+// Cache the handler across warm Lambda invocations
+let handlerInstance: ReturnType<typeof serverless>;
 
-export const handler: Handler = async (event, context) => {
+export const handler = async (event: any, context: any) => {
   if (!handlerInstance) {
-    const initializedApp = await setupApp();
-    handlerInstance = serverless(initializedApp);
+    const app = await setupApp();
+    handlerInstance = serverless(app);
   }
   return handlerInstance(event, context);
 };

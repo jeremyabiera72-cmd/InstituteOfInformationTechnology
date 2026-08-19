@@ -1,7 +1,5 @@
 import 'dotenv/config';
 import express from 'express';
-import path from 'path';
-import { createServer as createViteServer } from 'vite';
 import { requireAuth, requireAdmin, AuthRequest } from './src/middleware/auth.ts';
 import { adminAuth } from './src/lib/firebase-admin.ts';
 import { getOrCreateUser } from './src/db/users.ts';
@@ -12,8 +10,6 @@ import { eq, and } from 'drizzle-orm';
 export const app = express();
 
 export async function setupApp() {
-  const PORT = parseInt(process.env.PORT || '3000');
-
   app.use(express.json({ limit: '50mb' }));
   app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
@@ -1395,29 +1391,5 @@ export async function setupApp() {
     }
   });
 
-  // Vite middleware for development
-  if (process.env.NODE_ENV !== 'production') {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: 'spa',
-    });
-    app.use(vite.middlewares);
-  } else {
-    const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    app.get('*all', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
-  }
-
   return app;
-}
-
-if (process.env.NODE_ENV !== 'production' && !process.env.NETLIFY) {
-  setupApp().then((app) => {
-    const PORT = parseInt(process.env.PORT || '3000');
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log(`Server running on http://localhost:${PORT}`);
-    });
-  });
 }

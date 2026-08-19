@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 
 export default function Portfolio() {
-  const { user } = useAuth();
+  const { user, dbUser } = useAuth();
   const [students, setStudents] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState(false);
@@ -71,7 +71,7 @@ export default function Portfolio() {
         setMyProjects(p.projects || []);
 
         setFormData({
-          fullName: me?.fullName || me?.displayName || '',
+          fullName: me?.fullName || me?.displayName || user?.displayName || '',
           bio: p.bio || '',
           studentIdStr: p.studentIdStr || '',
           facebookUrl: p.facebookUrl || '',
@@ -82,6 +82,12 @@ export default function Portfolio() {
           secondaryEmergencyContact: p.secondaryEmergencyContact || '',
           parentName: p.parentName || ''
         });
+      } else {
+        // No portfolio yet — pre-fill name from auth
+        setFormData(prev => ({
+          ...prev,
+          fullName: dbUser?.fullName || user?.displayName || '',
+        }));
       }
     } catch (error) {
       console.error('Error fetching portfolio data:', error);
@@ -100,8 +106,10 @@ export default function Portfolio() {
       });
       setEditing(false);
       await fetchData();
-    } catch (error) {
+      alert('Profile saved successfully!');
+    } catch (error: any) {
       console.error('Failed to update portfolio:', error);
+      alert('Failed to save profile. Please check your connection and try again.');
     } finally {
       setSubmitting(false);
     }
