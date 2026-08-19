@@ -10,7 +10,7 @@ export default function Funds() {
   const fetchFunds = async () => {
     try {
       const res = await axios.get('/api/funds');
-      setFunds(res.data);
+      setFunds(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
     } finally {

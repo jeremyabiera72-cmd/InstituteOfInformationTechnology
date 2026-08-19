@@ -22,7 +22,7 @@ export default function Notes() {
   const fetchNotes = async () => {
     try {
       const res = await axios.get('/api/notes');
-      setNotes(res.data);
+      setNotes(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
     } finally {

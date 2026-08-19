@@ -29,7 +29,7 @@ export default function AdminStudents() {
   const fetchStudents = async () => {
     try {
       const res = await axios.get('/api/admin/students');
-      setStudents(res.data);
+      setStudents(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
     } finally {

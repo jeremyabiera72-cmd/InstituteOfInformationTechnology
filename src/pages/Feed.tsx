@@ -24,7 +24,7 @@ export default function Feed() {
     try {
       const userArea = localStorage.getItem('userArea') || 'BSCS';
       const res = await axios.get(`/api/feed?area=${userArea}`);
-      setFeed(res.data);
+      setFeed(Array.isArray(res.data) ? res.data : []);
     } catch (error) {
       console.error(error);
     } finally {

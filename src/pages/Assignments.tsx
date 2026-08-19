@@ -25,7 +25,7 @@ export default function Assignments() {
     try {
       const userArea = localStorage.getItem('userArea') || 'BSCS';
       const res = await axios.get(`/api/assignments?area=${userArea}`);
-      setAssignments(res.data);
+      setAssignments(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
     } finally {

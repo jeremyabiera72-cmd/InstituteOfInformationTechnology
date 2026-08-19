@@ -26,7 +26,7 @@ export default function LostAndFound() {
     try {
       const area = localStorage.getItem('userArea') || 'BSCS';
       const res = await axios.get(`/api/lost-and-found?area=${area}`);
-      setItems(res.data);
+      setItems(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
     } finally {

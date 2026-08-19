@@ -15,7 +15,7 @@ export default function ManageLostAndFound() {
   const fetchItems = async () => {
     try {
       const res = await axios.get('/api/admin/lost-and-found');
-      setItems(res.data);
+      setItems(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
     } finally {

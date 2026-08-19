@@ -26,7 +26,7 @@ export default function ManageAnnouncements() {
   const fetchAnnouncements = async () => {
     try {
       const res = await axios.get('/api/announcements'); // Admin sees all if no area is passed, wait, let's fetch all
-      setAnnouncements(res.data);
+      setAnnouncements(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
     } finally {

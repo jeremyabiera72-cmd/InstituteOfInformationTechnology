@@ -25,7 +25,7 @@ export default function SharedLinks() {
   const fetchLinks = async () => {
     try {
       const res = await axios.get('/api/links');
-      setLinks(res.data);
+      setLinks(Array.isArray(res.data) ? res.data : []);
     } catch (error) {
       console.error(error);
     } finally {

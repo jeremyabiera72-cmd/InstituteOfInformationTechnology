@@ -19,7 +19,7 @@ export default function Appointments() {
   const fetchAppointments = async () => {
     try {
       const res = await axios.get('/api/appointments');
-      setAppointments(res.data);
+      setAppointments(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
     } finally {

@@ -16,7 +16,7 @@ export default function Announcements() {
     try {
       const area = localStorage.getItem('userArea') || 'BSCS';
       const res = await axios.get(`/api/announcements?area=${area}`);
-      setAnnouncements(res.data);
+      setAnnouncements(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
     } finally {
