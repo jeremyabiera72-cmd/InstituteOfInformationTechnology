@@ -9,8 +9,9 @@ import { db } from './src/db/index.ts';
 import { users, notes, announcements, assignments, communityFeed, upcomingDeadlines, portfolio, projects, sharedLinks, postComments, postReactions, excuses, achievements, groupMembers, chatMessages, studyGroups, appointments, funds, lostAndFound } from './src/db/schema.ts';
 import { eq, and } from 'drizzle-orm';
 
-async function startServer() {
-  const app = express();
+export const app = express();
+
+export async function setupApp() {
   const PORT = parseInt(process.env.PORT || '3000');
 
   app.use(express.json({ limit: '50mb' }));
@@ -1409,9 +1410,14 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+  return app;
 }
 
-startServer();
+if (process.env.NODE_ENV !== 'production' && !process.env.NETLIFY) {
+  setupApp().then((app) => {
+    const PORT = parseInt(process.env.PORT || '3000');
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  });
+}
