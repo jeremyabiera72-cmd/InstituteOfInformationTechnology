@@ -42,9 +42,10 @@ export default function Deadlines() {
   const fetchDeadlines = async () => {
     try {
       const res = await axios.get('/api/community-deadlines');
-      setDeadlines(res.data);
+      setDeadlines(Array.isArray(res.data) ? res.data : []);
     } catch (error) {
       console.error(error);
+      setDeadlines([]);
     } finally {
       setLoading(false);
     }

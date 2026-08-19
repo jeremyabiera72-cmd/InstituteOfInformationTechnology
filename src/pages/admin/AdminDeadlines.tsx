@@ -24,9 +24,10 @@ export default function AdminDeadlines() {
   const fetchDeadlines = async () => {
     try {
       const res = await axios.get('/api/admin/deadlines');
-      setDeadlines(res.data);
+      setDeadlines(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error(err);
+      setDeadlines([]);
     } finally {
       setLoading(false);
     }
